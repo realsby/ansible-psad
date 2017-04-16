@@ -1,0 +1,19 @@
+---
+- name: Enable psad service
+  service:
+    name: psad
+    enabled: yes
+
+- name: Install config for psad
+  template:
+    src: etc/psad/psad.conf
+    dest: /etc/psad/psad.conf
+    mode: 0644
+    owner: root
+    group: root
+    validate: /usr/sbin/psad -D %s
+    backup: yes
+  notify: restart psad
+  tags:
+    - configure
+    - psad

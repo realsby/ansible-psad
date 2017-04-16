@@ -1,0 +1,30 @@
+---
+- name: Install git-core
+  apt:
+    state: present
+    name: git-core
+
+- name: Install iptables
+  apt:
+    state: present
+    name: iptables
+
+- name: Install ipset
+  apt:
+    state: present
+    name: ipset
+
+- name: Check if psad exist
+  stat:
+    path: /usr/sbin/psad
+  register: psad_path
+
+- name: Check if build-essential is installed
+  command: dpkg-query -l build-essential
+  register: build_essential_check
+
+- name: Install build essential
+  apt:
+    name: build-essential
+    state: present
+  when: psad_path.stat.exists == False

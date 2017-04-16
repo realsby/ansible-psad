@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Carlos Hernandez
+  description: Configure and install psad from git
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - xenial
+  min_ansible_version: 1.9.6
+  galaxy_tags:
+    - psad
+    - iptables
+    - ipset
+dependencies: []

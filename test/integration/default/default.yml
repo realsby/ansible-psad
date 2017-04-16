@@ -1,0 +1,27 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+  pre_tasks:
+  - name: Install firewalld dependency
+    apt:
+      name: firewalld
+      state: present
+  roles:
+    # name of role to test
+    - role: ansible-psad
+      psad_github_org: "hurricanehrndz"
+      psad_github_version: "ft_ipset"
+      psad_danger_level1: "5"
+      psad_danger_level2: "15"
+      psad_danger_level3: "30"
+      psad_danger_level4: "100"
+      psad_danger_level5: "1000"
+      psad_alerting_methods: "noemail"
+      psad_enable_auto_ids: "Y"
+      psad_auto_ids_danger_level: "3"
+      psad_auto_block_timeout: "172800"
+      psad_auto_block_dl1_timeout: "172800"
+      psad_auto_block_dl2_timeout: "345600"
+      psad_auto_block_dl3_timeout: "604800"
+      psad_auto_block_dl4_timeout: "0"

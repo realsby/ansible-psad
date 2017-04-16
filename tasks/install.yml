@@ -1,0 +1,25 @@
+---
+- name: Create temporary build directory
+  command: mktemp -d "{{ lookup('env', 'TMPDIR') | default('/tmp/') }}ansible.XXXX"
+  register: temp_path
+  when: psad_path.stat.exists == False
+
+- name: Download psad source
+  git:
+    repo: 'https://github.com/{{ psad_github_org }}/psad'
+    dest: "{{ temp_path.stdout }}"
+    version: {{ psad_github_version }}
+  when: psad_path.stat.exists == False
+
+- name: Copy answers to psad source directory
+  copy:
+    src: install.answers
+    dest: "{{ temp_path.stdout }}"
+  when: psad_path.stat.exists == False
+
+- name: Build and Install psad
+  command: ./install.pl -U -a install.answers
+  args:
+    chdir: "{{ temp_path.stdout }}"
+    creates: /usr/sbin/psad
+  when: psad_path.stat.exists == False

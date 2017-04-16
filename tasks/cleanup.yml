@@ -1,0 +1,6 @@
+---
+- name: Remove build-essential if required
+  apt:
+    name: build-essential
+    state: absent
+  when: build_essential_check.stdout.find('no packages found') != -1
