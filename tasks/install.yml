@@ -8,7 +8,7 @@
   git:
     repo: 'https://github.com/{{ psad_github_org }}/psad'
     dest: "{{ temp_path.stdout }}"
-    version: {{ psad_github_version }}
+    version: "{{ psad_github_version }}"
   when: psad_path.stat.exists == False
 
 - name: Copy answers to psad source directory

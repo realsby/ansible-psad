@@ -22,6 +22,7 @@
 - name: Check if build-essential is installed
   command: dpkg-query -l build-essential
   register: build_essential_check
+  when: psad_path.stat.exists == False
 
 - name: Install build essential
   apt:

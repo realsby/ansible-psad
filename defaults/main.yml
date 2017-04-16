@@ -521,7 +521,7 @@ psad_external_block_script: "/bin/true"
 ### ...would be handled properly with:
 ###     ^\s*([\d\-]+T(?:\d{2}\:){2}\d{2}\S+)\s+(\S+)\s+kernel:
 psad_enable_custom_syslog_ts_re: "N"
-psad_custom_syslog_ts_re: "^\s*((?:\S+\s+){2}\S+)\s+(\S+)\s+kernel\:"
+psad_custom_syslog_ts_re: '^\s*((?:\S+\s+){2}\S+)\s+(\S+)\s+kernel\:'
 
 ### Disk usage variables
 psad_disk_check_interval: "300"  ### seconds
