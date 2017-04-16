@@ -6,7 +6,7 @@ psad_github_version: "master"
 
 ### Supports multiple email addresses (as a comma separated
 ### list).
-psad_email_address: "root@localhost"
+psad_email_addresses: "root@localhost"
 
 ### Machine hostname
 psad_hostname: "{{ ansible_hostname }}"

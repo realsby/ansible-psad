@@ -11,7 +11,7 @@
     # name of role to test
     - role: ansible-psad
       psad_github_org: "hurricanehrndz"
-      psad_github_version: "ft_ipset"
+      psad_github_version: "ft-ipset"
       psad_danger_level1: "5"
       psad_danger_level2: "15"
       psad_danger_level3: "30"
