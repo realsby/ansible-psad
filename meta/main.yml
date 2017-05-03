@@ -12,4 +12,7 @@ galaxy_info:
     - psad
     - iptables
     - ipset
-dependencies: []
+dependencies:
+  - role: ansible-postfix
+    src: git+https://github.com/hurricanehrndz/ansible-postfix
+    version: master

@@ -1,0 +1,3 @@
+- src: git+https://github.com/hurricanehrndz/ansible-postfix.git
+  version: master
+  name: ansible-postfix
