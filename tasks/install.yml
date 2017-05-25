@@ -17,9 +17,19 @@
     dest: "{{ temp_path.stdout }}"
   when: psad_path.stat.exists == False
 
+- name: Install perl module Date::Calc
+  apt:
+    name: libdate-calc-perl
+    state: present
+  when: psad_path.stat.exists == False
+
 - name: Build and Install psad
   command: ./install.pl -U -a install.answers
   args:
     chdir: "{{ temp_path.stdout }}"
     creates: /usr/sbin/psad
   when: psad_path.stat.exists == False
+  notify:
+    - reload systemd
+    - enable psad
+    - restart psad
