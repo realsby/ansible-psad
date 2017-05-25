@@ -1,9 +1,4 @@
 ---
-- name: Enable psad service
-  service:
-    name: psad
-    enabled: yes
-
 - name: Install config for psad
   template:
     src: etc/psad/psad.conf
