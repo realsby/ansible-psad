@@ -648,6 +648,7 @@ psad_ipt_error_pattern: "psad_ipterr.XXXXXX"
 ### system binaries
 psad_iptablescmd: "/sbin/iptables"
 psad_ip6tablescmd: "/sbin/ip6tables"
+psad_ipsetcmd: "/sbin/ipset"
 psad_shcmd: "/bin/sh"
 psad_wgetcmd: "/usr/bin/wget"
 psad_gzipcmd: "/bin/gzip"
